@@ -1,0 +1,351 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 6%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 6%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 6%;
+
+    --primary: 0 84% 52%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 0 92% 62%;
+
+    --secondary: 0 0% 6%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 0 84% 52%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 92%;
+    --input: 0 0% 92%;
+    --ring: 0 84% 52%;
+
+    --radius: 1rem;
+
+    --surface: 0 0% 98%;
+    --surface-elevated: 0 0% 100%;
+    --ink: 0 0% 6%;
+    --ink-soft: 0 0% 18%;
+
+    --gradient-hero: radial-gradient(ellipse 80% 60% at 80% 0%, hsl(0 84% 52% / 0.22), transparent 60%),
+                     radial-gradient(ellipse 60% 50% at 0% 100%, hsl(0 0% 6% / 0.08), transparent 50%),
+                     linear-gradient(180deg, hsl(0 0% 100%), hsl(0 0% 97%));
+    --gradient-dark: linear-gradient(135deg, hsl(0 0% 9%) 0%, hsl(0 0% 4%) 100%);
+    --gradient-red: linear-gradient(135deg, hsl(0 92% 62%), hsl(355 90% 45%));
+    --gradient-red-soft: linear-gradient(135deg, hsl(0 84% 52% / 0.12), hsl(355 90% 45% / 0.04));
+    --gradient-text: linear-gradient(135deg, hsl(0 0% 6%), hsl(0 0% 30%));
+    --gradient-mesh: radial-gradient(at 20% 20%, hsl(0 84% 52% / 0.15) 0px, transparent 50%),
+                     radial-gradient(at 80% 30%, hsl(355 90% 45% / 0.1) 0px, transparent 50%),
+                     radial-gradient(at 40% 80%, hsl(0 0% 6% / 0.06) 0px, transparent 50%);
+
+    --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.08);
+    --shadow-card: 0 10px 40px -10px hsl(0 0% 0% / 0.12);
+    --shadow-glow: 0 10px 40px -10px hsl(0 84% 52% / 0.5);
+    --shadow-glow-strong: 0 24px 70px -10px hsl(0 84% 52% / 0.65);
+    --shadow-floating: 0 40px 80px -24px hsl(0 0% 0% / 0.32), 0 8px 24px -8px hsl(0 0% 0% / 0.18);
+    --shadow-inset: inset 0 1px 0 0 hsl(0 0% 100% / 0.06);
+
+    --glass-bg: hsl(0 0% 100% / 0.72);
+    --glass-border: hsl(0 0% 100% / 0.5);
+
+    --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .dark {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 98%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 65%;
+    --border: 0 0% 16%;
+    --glass-bg: hsl(0 0% 10% / 0.6);
+    --glass-border: hsl(0 0% 100% / 0.08);
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  html { scroll-behavior: smooth; }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-feature-settings: "ss01", "cv01", "cv11";
+  }
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+    letter-spacing: -0.025em;
+  }
+  ::selection { @apply bg-primary text-primary-foreground; }
+
+  /* Premium scrollbar */
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: hsl(var(--muted)); }
+  ::-webkit-scrollbar-thumb { background: hsl(var(--secondary)); border-radius: 8px; }
+}
+
+@layer components {
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid var(--glass-border);
+  }
+  .glass-dark {
+    background: hsl(0 0% 8% / 0.7);
+    backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid hsl(0 0% 100% / 0.07);
+    box-shadow: inset 0 1px 0 0 hsl(0 0% 100% / 0.05);
+  }
+  .text-gradient {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .text-gradient-red {
+    background: var(--gradient-red);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .grid-bg {
+    background-image:
+      linear-gradient(hsl(0 0% 0% / 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(0 0% 0% / 0.045) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse at center, black 25%, transparent 75%);
+  }
+  .grid-bg-dark {
+    background-image:
+      linear-gradient(hsl(0 0% 100% / 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(0 0% 100% / 0.05) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  }
+  .noise {
+    position: relative;
+  }
+  .noise::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.04;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+  .card-3d {
+    transform-style: preserve-3d;
+    transition: transform 0.6s var(--transition-smooth), box-shadow 0.6s var(--transition-smooth);
+  }
+  .card-lift {
+    transition: transform 0.4s var(--transition-smooth), box-shadow 0.4s var(--transition-smooth), border-color 0.4s var(--transition-smooth);
+  }
+  .card-lift:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-floating);
+  }
+  .btn-glow {
+    box-shadow: var(--shadow-glow);
+    transition: all 0.35s var(--transition-smooth);
+  }
+  .btn-glow:hover {
+    box-shadow: var(--shadow-glow-strong);
+    transform: translateY(-2px);
+  }
+  .ring-divider {
+    background: linear-gradient(180deg, transparent, hsl(var(--border)), transparent);
+    height: 1px;
+  }
+  .marquee-mask {
+    mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+  }
+
+  /* ==========================================
+     BARBER POLE STYLES
+     ========================================== */
+  .barber-pole-container {
+    position: relative;
+    display: inline-block;
+    filter: drop-shadow(0 20px 40px hsl(0 0% 0% / 0.3));
+  }
+
+  .barber-pole {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .barber-pole-cap {
+    background: linear-gradient(180deg, #3a3a3a, #1a1a1a);
+    position: relative;
+    z-index: 3;
+    box-shadow: inset 0 2px 4px hsl(0 0% 100% / 0.15),
+                inset 0 -2px 4px hsl(0 0% 0% / 0.3);
+  }
+
+  .barber-pole-cap-top {
+    border-bottom: 2px solid #444;
+  }
+
+  .barber-pole-cap-bottom {
+    border-top: 2px solid #444;
+  }
+
+  .barber-pole-body {
+    position: relative;
+    background: #f5f5f5;
+    z-index: 2;
+    border-left: 3px solid #2a2a2a;
+    border-right: 3px solid #2a2a2a;
+  }
+
+  .barber-pole-glass {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      hsl(0 0% 0% / 0.08),
+      hsl(0 0% 100% / 0.3) 30%,
+      hsl(0 0% 100% / 0.05) 50%,
+      hsl(0 0% 0% / 0.12) 100%
+    );
+    z-index: 5;
+    pointer-events: none;
+  }
+
+  .barber-pole-stripes {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    overflow: hidden;
+    z-index: 3;
+  }
+
+  .barber-pole-svg {
+    animation: barber-pole-spin 3s linear infinite;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .barber-pole-highlight {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsl(0 0% 100% / 0.5) 25%,
+      hsl(0 0% 100% / 0.15) 40%,
+      transparent 55%,
+      hsl(0 0% 0% / 0.05) 100%
+    );
+    z-index: 6;
+    pointer-events: none;
+  }
+
+  .barber-pole-ball {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(
+      ellipse at 35% 30%,
+      #555,
+      #222 50%,
+      #111 100%
+    );
+    box-shadow: inset 0 2px 6px hsl(0 0% 100% / 0.25),
+                0 4px 12px hsl(0 0% 0% / 0.5);
+    z-index: 4;
+  }
+
+  .barber-pole-glow {
+    position: absolute;
+    background: radial-gradient(
+      ellipse,
+      hsl(0 84% 52% / 0.25),
+      hsl(240 80% 50% / 0.1) 40%,
+      transparent 70%
+    );
+    border-radius: 50%;
+    z-index: -1;
+    filter: blur(30px);
+    animation: barber-pole-glow-pulse 4s ease-in-out infinite;
+  }
+
+  /* ==========================================
+     SCROLL PROGRESS BAR
+     ========================================== */
+  .scroll-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, hsl(0 84% 52%), hsl(355 90% 45%), hsl(240 80% 50%));
+    z-index: 99990;
+    border-radius: 0 2px 2px 0;
+    box-shadow: 0 0 12px hsl(0 84% 52% / 0.6);
+  }
+
+  /* ==========================================
+     SCROLL 3D WRAPPER
+     ========================================== */
+  .scroll-3d-wrapper {
+    perspective: 1200px;
+    transform-style: preserve-3d;
+  }
+}
+
+@layer utilities {
+  .perspective-1000 { perspective: 1000px; }
+  .perspective-2000 { perspective: 2000px; }
+  .preserve-3d { transform-style: preserve-3d; }
+  .animation-delay-200 { animation-delay: 200ms; }
+  .animation-delay-400 { animation-delay: 400ms; }
+  .animation-delay-600 { animation-delay: 600ms; }
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+  .bg-mesh { background-image: var(--gradient-mesh); }
+  .bg-red-soft { background-image: var(--gradient-red-soft); }
+}
+
+/* ==========================================
+   BARBER POLE ANIMATION KEYFRAMES
+   (outside @layer to ensure they work globally)
+   ========================================== */
+@keyframes barber-pole-spin {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-33.333%);
+  }
+}
+
+@keyframes barber-pole-glow-pulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}

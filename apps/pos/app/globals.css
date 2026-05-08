@@ -1,0 +1,310 @@
+@import "tailwindcss";
+
+
+/* === BARBERA POS — DARK GOLD THEME === */
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E2C47A;
+  --gold-dark: #A07830;
+  --gold-glow: rgba(201, 168, 76, 0.25);
+  --black: #0A0A0B;
+  --surface: #111114;
+  --surface-2: #1A1A1F;
+  --surface-3: #222228;
+  --border: rgba(201, 168, 76, 0.15);
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --text-primary: #F5F0E8;
+  --text-secondary: #A09880;
+  --text-muted: #5A5448;
+  --success: #4CAF7A;
+  --warning: #F5A623;
+  --danger: #E05252;
+  --info: #4A9BE8;
+}
+
+@theme inline {
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-dark: var(--gold-dark);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+html {
+  height: 100%;
+  /* Prevent zoom on input focus on iOS */
+  touch-action: pan-x pan-y;
+}
+
+body {
+  min-height: 100%;
+  background-color: var(--black);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Prevent zoom on input focus (iOS) */
+input[type="text"],
+input[type="number"],
+input[type="tel"],
+input[type="password"],
+input[type="email"],
+select,
+textarea {
+  font-size: 16px !important;
+}
+
+/* === POS UTILITY CLASSES === */
+
+/* Gold Button */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
+  color: #0A0A0B;
+  font-weight: 700;
+  font-family: var(--font-display);
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 20px var(--gold-glow);
+  letter-spacing: 0.02em;
+  -webkit-tap-highlight-color: transparent;
+}
+.btn-gold:active {
+  transform: scale(0.97);
+  box-shadow: 0 2px 10px var(--gold-glow);
+}
+
+/* Surface Card */
+.card-pos {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+}
+
+/* PIN Digit Button */
+.pin-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  background: var(--surface-2);
+  border: 1px solid var(--border-subtle);
+  border-radius: 50%;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+.pin-btn:active {
+  background: var(--surface-3);
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: scale(0.93);
+}
+
+/* Gold Divider */
+.divider-gold {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0.3;
+  margin: 16px 0;
+}
+
+/* Status Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.badge-success { background: rgba(76, 175, 122, 0.15); color: var(--success); }
+.badge-warning { background: rgba(245, 166, 35, 0.15); color: var(--warning); }
+.badge-danger  { background: rgba(224, 82, 82, 0.15); color: var(--danger); }
+.badge-gold    { background: rgba(201, 168, 76, 0.15); color: var(--gold); }
+.badge-muted   { background: var(--surface-3); color: var(--text-muted); }
+
+/* Metric Card */
+.metric-card {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.metric-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.metric-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: var(--font-display);
+  color: var(--text-primary);
+}
+.metric-value.gold { color: var(--gold); }
+
+/* Bottom Nav — responsive full width */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: rgba(17, 17, 20, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid var(--border);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  z-index: 100;
+}
+
+/* Bottom nav inner: constrain items on large screens */
+.bottom-nav-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 8px 16px;
+}
+
+/* Input field */
+.input-pos {
+  width: 100%;
+  background: var(--surface-3);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 14px 16px;
+  color: var(--text-primary);
+  font-size: 16px;
+  transition: all 0.2s ease;
+  outline: none;
+}
+.input-pos:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px var(--gold-glow);
+}
+.input-pos::placeholder {
+  color: var(--text-muted);
+}
+
+/* Queue item */
+.queue-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--surface-2);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  transition: all 0.2s ease;
+}
+.queue-item:active {
+  border-color: var(--gold);
+  background: var(--surface-3);
+}
+
+/* Page wrapper — full width, responsive */
+.pos-page {
+  min-height: 100dvh;
+  width: 100%;
+  background: var(--black);
+  position: relative;
+}
+
+/* Content container — responsive max-width */
+.pos-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+@media (min-width: 768px) {
+  .pos-container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pos-container {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+}
+
+/* Scrollable content above bottom nav */
+.pos-content {
+  padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px));
+}
+
+/* Gold gradient text */
+.text-gold-gradient {
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Pulse animation for active status */
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201, 168, 76, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(201, 168, 76, 0); }
+}
+.pulse-gold {
+  animation: pulse-gold 2s ease-in-out infinite;
+}
+
+/* Slide up animation */
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-slide-up { animation: slide-up 0.35s ease forwards; }
+
+/* Fade in */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.animate-fade-in { animation: fade-in 0.3s ease forwards; }
+
+/* Safe area top padding */
+.pt-safe { padding-top: max(16px, env(safe-area-inset-top)); }

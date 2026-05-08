@@ -1,0 +1,563 @@
+.pageShell {
+  --bg-soft: rgba(255, 255, 255, 0.6);
+  --bg-strong: rgba(255, 255, 255, 0.88);
+  --stroke-soft: rgba(201, 162, 46, 0.15);
+  --text-dim: #645b4c;
+  --text-soft: #4a4235;
+  --text-strong: #1c1810;
+  --accent: #d97706;
+  --accent-strong: #b45309;
+  --surface: #fdfbf7;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 28px 24px 96px;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 0 8px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand strong {
+  display: block;
+  font-family: var(--font-heading), sans-serif;
+  font-size: 1.1rem;
+}
+
+.brand span:last-child {
+  display: block;
+  color: var(--text-dim);
+  font-size: 0.92rem;
+}
+
+.brandMark {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f0b84b, #f97316);
+  color: #fff;
+  font-family: var(--font-heading), sans-serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  box-shadow: 0 12px 24px rgba(240, 184, 75, 0.2);
+}
+
+.navActions {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.navActions a {
+  color: var(--text-soft);
+  text-decoration: none;
+  font-size: 0.96rem;
+}
+
+.ghostButton,
+.secondaryButton,
+.primaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all 160ms ease;
+  font-weight: 600;
+}
+
+.ghostButton {
+  padding: 10px 16px;
+  background: transparent;
+  color: var(--text-strong);
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+  gap: 28px;
+  align-items: stretch;
+}
+
+.eyebrow,
+.sectionLabel {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.78rem;
+  color: var(--accent);
+  margin: 0 0 16px;
+}
+
+.heroTitle,
+.sectionHeading h2,
+.ctaCard h2 {
+  font-family: var(--font-heading), sans-serif;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: var(--text-strong);
+}
+
+.heroTitle {
+  font-size: clamp(3rem, 6.5vw, 5.2rem);
+  margin: 0 0 20px;
+  max-width: 10.5ch;
+}
+
+.heroLead {
+  max-width: 670px;
+  font-size: 1.08rem;
+  line-height: 1.8;
+  color: var(--text-dim);
+  margin: 0 0 28px;
+}
+
+.heroCtas,
+.ctaActions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.primaryButton {
+  padding: 14px 22px;
+  background: linear-gradient(135deg, #1c1810, #2d261a);
+  color: #ffffff;
+  box-shadow: 0 12px 24px rgba(28, 24, 16, 0.15);
+}
+
+.secondaryButton {
+  padding: 14px 22px;
+  border: 1px solid rgba(28, 24, 16, 0.1);
+  background: #ffffff;
+  color: #1c1810;
+}
+
+.primaryButton:hover,
+.secondaryButton:hover,
+.ghostButton:hover {
+  transform: translateY(-1px);
+}
+
+.heroProof {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+}
+
+.heroProof span {
+  padding: 9px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--stroke-soft);
+  background: rgba(255, 255, 255, 0.8);
+  font-size: 0.92rem;
+  color: var(--text-soft);
+}
+
+.heroPanel,
+.problemCard,
+.featureCard,
+.metricCard,
+.stepCard,
+.pricingCard,
+.faqItem,
+.securityCard,
+.ctaCard,
+.compareTable {
+  border: 1px solid var(--stroke-soft);
+  background: var(--bg-strong);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 12px 32px rgba(28, 24, 16, 0.03);
+}
+
+.heroPanel {
+  padding: 22px;
+  border-radius: 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroPanel::after {
+  content: "";
+  position: absolute;
+  inset: auto -30% -35% auto;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(240, 184, 75, 0.22), transparent 70%);
+}
+
+.panelHeader {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  color: var(--text-soft);
+  font-size: 0.94rem;
+}
+
+.panelDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--accent);
+  box-shadow: 0 0 0 6px rgba(240, 184, 75, 0.16);
+}
+
+.kpiGrid,
+.problemGrid,
+.featureGrid,
+.metricGrid,
+.stepGrid,
+.pricingGrid,
+.faqList {
+  display: grid;
+  gap: 16px;
+}
+
+.kpiGrid,
+.metricGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.kpiCard {
+  padding: 18px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(201, 162, 46, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.kpiCard span,
+.metricCard p,
+.featureCard p,
+.problemCard p,
+.stepCard p,
+.pricingCard p,
+.faqItem p,
+.inlineStats p,
+.securityCard p {
+  color: var(--text-dim);
+}
+
+.kpiCard span {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+
+.kpiCard strong,
+.metricCard strong,
+.pricingCard strong {
+  display: block;
+  font-family: var(--font-heading), sans-serif;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: var(--text-strong);
+}
+
+.kpiCard p {
+  margin: 0;
+  font-size: 0.94rem;
+  line-height: 1.6;
+}
+
+.inlineStats {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.inlineStats div {
+  padding: 16px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(201, 162, 46, 0.1);
+}
+
+.inlineStats strong {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.section {
+  padding-top: 96px;
+}
+
+.sectionHeading {
+  max-width: 860px;
+  margin-bottom: 28px;
+}
+
+.sectionHeading h2 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.35rem);
+}
+
+.problemGrid,
+.stepGrid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.featureGrid,
+.pricingGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.problemCard,
+.featureCard,
+.metricCard,
+.stepCard,
+.pricingCard,
+.faqItem {
+  padding: 22px;
+  border-radius: 24px;
+}
+
+.problemIndex,
+.stepNumber,
+.planBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.problemIndex,
+.stepNumber {
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(240, 184, 75, 0.28);
+  background: rgba(240, 184, 75, 0.08);
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+.featureCard h3,
+.stepCard h3,
+.pricingCard h3,
+.faqItem h3,
+.securityCard h3 {
+  font-family: var(--font-heading), sans-serif;
+  font-size: 1.25rem;
+  margin: 0 0 10px;
+  color: var(--text-strong);
+}
+
+.featureCard p,
+.problemCard p,
+.metricCard p,
+.stepCard p,
+.pricingCard p,
+.faqItem p,
+.securityCard p,
+.compareRow p,
+.ctaCard p {
+  margin: 0;
+  line-height: 1.75;
+  font-size: 0.98rem;
+}
+
+.metricsSection {
+  position: relative;
+}
+
+.metricsSection::before {
+  content: "";
+  position: absolute;
+  inset: 54px 0 auto;
+  height: 280px;
+  border-radius: 32px;
+  background: linear-gradient(135deg, rgba(240, 184, 75, 0.08), rgba(255, 255, 255, 0.02));
+  z-index: -1;
+}
+
+.metricCard strong {
+  font-size: 2rem;
+}
+
+.compareTable {
+  border-radius: 28px;
+  overflow: hidden;
+}
+
+.compareHeader,
+.compareRow {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.compareHeader {
+  background: rgba(201, 162, 46, 0.06);
+  color: var(--text-strong);
+  font-family: var(--font-heading), sans-serif;
+  font-size: 1rem;
+}
+
+.compareHeader span,
+.compareRow p {
+  padding: 18px 22px;
+}
+
+.compareRow:nth-child(odd) {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.compareRow p + p,
+.compareHeader span + span {
+  border-left: 1px solid var(--stroke-soft);
+}
+
+.pricingCard {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.pricingFeatured {
+  border-color: rgba(240, 184, 75, 0.45);
+  box-shadow: 0 28px 64px rgba(240, 184, 75, 0.1);
+}
+
+.planBadge {
+  padding: 8px 12px;
+  background: rgba(240, 184, 75, 0.12);
+  border: 1px solid rgba(240, 184, 75, 0.22);
+  color: var(--accent);
+}
+
+.pricingCard ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--text-soft);
+  line-height: 1.8;
+  flex: 1;
+}
+
+.pricingCard li + li {
+  margin-top: 4px;
+}
+
+.securitySection .sectionHeading {
+  max-width: 980px;
+}
+
+.securityCard {
+  border-radius: 28px;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.securityCard > div {
+  padding: 18px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(201, 162, 46, 0.08);
+}
+
+.ctaSection {
+  padding-bottom: 32px;
+}
+
+.ctaCard {
+  border-radius: 30px;
+  padding: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+}
+
+.ctaCard h2 {
+  font-size: clamp(2rem, 3vw, 2.9rem);
+  max-width: 12ch;
+  margin: 0;
+}
+
+.ctaCard p {
+  max-width: 560px;
+}
+
+@media (max-width: 1080px) {
+  .heroGrid,
+  .featureGrid,
+  .problemGrid,
+  .stepGrid,
+  .pricingGrid,
+  .kpiGrid,
+  .metricGrid,
+  .securityCard,
+  .ctaCard {
+    grid-template-columns: 1fr;
+  }
+
+  .ctaCard {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 760px) {
+  .pageShell {
+    padding: 20px 18px 72px;
+  }
+
+  .navbar,
+  .navActions,
+  .heroCtas,
+  .heroProof,
+  .ctaActions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .compareHeader,
+  .compareRow,
+  .inlineStats {
+    grid-template-columns: 1fr;
+  }
+
+  .compareRow p + p,
+  .compareHeader span + span {
+    border-left: 0;
+    border-top: 1px solid var(--stroke-soft);
+  }
+
+  .heroTitle {
+    max-width: none;
+  }
+
+  .ctaCard h2,
+  .sectionHeading h2 {
+    max-width: none;
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "barbera-platform",
+  "private": true,
+  "packageManager": "pnpm@10.10.0",
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev:web": "pnpm --dir apps/web dev",
+    "dev:admin": "pnpm --dir apps/platform-admin dev",
+    "dev:pos": "pnpm --dir apps/pos dev",
+    "dev:landing": "pnpm --dir apps/landing dev",
+    "build:web": "pnpm --dir apps/web build",
+    "build:admin": "pnpm --dir apps/platform-admin build",
+    "build:pos": "pnpm --dir apps/pos build",
+    "build:landing": "pnpm --dir apps/landing build"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.59.1"
+  }
+}
